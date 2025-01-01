@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录页面</title>
+</head>
+<body>
+
+<script>
+    function login(){
+        const username = document.getElementById("username").value
+        const password = document.getElementById("password").value
+        if (!username || !password){
+            alert("请输入用户名或密码")
+            return
+        }
+        fetch('/login',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json;charset=UTF-8"
+            },
+            body:JSON.stringify({username: username,password:password})
+        }).then(res =>{
+            console.log(res)
+        })
+    }
+</script>
+</body>
+</html>
